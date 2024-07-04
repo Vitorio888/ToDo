@@ -1,0 +1,49 @@
+.task
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.task.todo
+{
+  background-color: rgb(138, 173, 20);
+}
+
+.buttons-selector {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #433352;
+  color: #c3b3d1;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  min-width: 10rem;
+  text-align: left;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: #9965dd;
+  color: #150722;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #ffffff;
+}

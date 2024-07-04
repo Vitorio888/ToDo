@@ -1,0 +1,8 @@
+<div class="task" [ngClass]="{ 'todo': todo }">
+  <p>{{ task.name }}</p>
+  <div class="buttons-selector">
+    <button type="button" (click)="onToDo()">ToDo</button>
+    <button type="button"  (click)="onCompleteTask()">Completed</button>
+    <button type="button" (click)="onCancel()">Canceled</button>
+  </div>
+</div>

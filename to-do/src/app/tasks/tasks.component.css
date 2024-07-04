@@ -1,0 +1,21 @@
+.wrap
+{
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .tasks {
+    flex-direction: column;
+  }
+}

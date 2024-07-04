@@ -1,0 +1,47 @@
+div {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+input {
+  width: 15rem;
+  height: 2rem;
+}
+
+.buttons-selector {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #433352;
+  color: #c3b3d1;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  /* min-width: 10rem; */
+  text-align: center;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: #9965dd;
+  color: #150722;
+}
