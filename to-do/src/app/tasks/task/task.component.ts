@@ -13,11 +13,7 @@ export class TaskComponent {
   @Input({required: true}) task!: Task;
   @Output() cancel = new EventEmitter<string>();
   todo = false;
-  // completed: boolean = false;
-
-  // @Input({required: true}) task!: {
-  //   name: string;
-  // };
+  completed = false;
 
   onToDo() {
     console.log('Clicked Todo!');
@@ -26,8 +22,7 @@ export class TaskComponent {
 
   onCompleteTask() {
     console.log('Clicked Cancel !');
-    // this.completed = true;
-    this.cancel.emit(this.task.name);
+    this.completed = !this.completed;
   }
 
   onCancel() {

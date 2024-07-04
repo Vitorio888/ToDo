@@ -15,22 +15,13 @@ export class TasksComponent {
   @Input() name!: string;
   tasks = [
     {
-      name: 'Tasks1',
+      name: 'Task1',
     },
     {
-      name: 'Tasks2',
+      name: 'Task2',
     },
     {
-      name: 'Tasks3',
-    },
-    {
-      name: 'Tasks4',
-    },
-    {
-      name: 'Tasks5',
-    },
-    {
-      name: 'Tasks6',
+      name: 'Task3',
     },
   ];
 
@@ -38,11 +29,6 @@ export class TasksComponent {
   {
     this.tasks = this.tasks.filter((task) => task.name !== name);
   }
-
-  // onCompletedTask(name: string)
-  // {
-  //   this.tasks = this.tasks.filter((task) => task.name !== name);
-  // }
 
   onAddTask(taskData: NewTaskData)
   {

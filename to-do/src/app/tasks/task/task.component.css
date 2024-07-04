@@ -11,7 +11,12 @@
 
 .task.todo
 {
-  background-color: rgb(138, 173, 20);
+  background-color: rgb(20, 130, 173);
+}
+
+.task.completed
+{
+  background-color: rgb(64, 129, 64);
 }
 
 .buttons-selector {
