@@ -17,6 +17,11 @@ label {
 input {
   width: 15rem;
   height: 2rem;
+  border: 0.5rem solid transparent;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
 }
 
 .buttons-selector {
@@ -44,4 +49,11 @@ button:active,
 .active {
   background-color: #9965dd;
   color: #150722;
+}
+
+button:disabled
+{
+  background-color: gray;
+  color: rgb(171, 171, 171);
+  cursor: not-allowed;
 }

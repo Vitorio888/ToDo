@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { TasksComponent } from './tasks/tasks.component';
 
