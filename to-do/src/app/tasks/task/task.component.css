@@ -9,10 +9,10 @@
   overflow: hidden;
 }
 
-.task.todo
+/* .task.todo
 {
   background-color: rgb(20, 130, 173);
-}
+} */
 
 .task.completed
 {
