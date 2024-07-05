@@ -35,11 +35,11 @@ export class TasksComponent {
     console.log('Initial task list:', this.tasks);
   }
 
-  onCancelTask(id: string)
-  {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-    console.log('Task canceled:', id);
-  }
+  // onCancelTask(id: string)
+  // {
+  //   this.tasks = this.tasks.filter((task) => task.id !== id);
+  //   console.log('Task canceled:', id);
+  // }
 
   onAddTask(taskData: NewTaskData)
   {
@@ -48,7 +48,8 @@ export class TasksComponent {
       name: taskData.name,
       status: taskData.status
     })
-    console.log('Task added: ID =', taskData.id, ', Name =', taskData.name);
+    console.log('Update task list:', this.tasks);
+    // console.log('Task added: ID =', taskData.id, ', Name =', taskData.name, ', Status =', taskData.status);
   }
 
   onStatusChange(updatedTask: Task) {
@@ -56,5 +57,6 @@ export class TasksComponent {
     if (task) {
       task.status = updatedTask.status;
     }
+    console.log('Update task list:', this.tasks);
   }
 }

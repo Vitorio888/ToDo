@@ -19,13 +19,14 @@ export class AddTaskComponent {
 
   onSubmit() {
     const newTaskId = uuidv4();
+    const status = 'todo'
     this.add.emit({
       id: newTaskId,
       name: this.enteredName.trim(),
-      status: 'todo'
+      status: status
     });
     this.enteredName = '';
-    console.log('Adding task: ID =', newTaskId, ', Name =', this.enteredName.trim());
+    // console.log('Adding task: ID =', newTaskId, ', Name =', this.enteredName.trim() , ', Status =', status);
   }
 
   isDisabled() {

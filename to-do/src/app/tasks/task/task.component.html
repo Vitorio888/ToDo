@@ -1,4 +1,3 @@
-<!-- <div class="task" [ngClass]="{ 'todo': todo, 'completed' : completed }"> -->
 <div class="task" [ngClass]="{ 'todo': task.status === 'todo', 'completed' : task.status === 'completed', 'canceled': task.status === 'canceled' }">
   
   <p>{{ task.name }}</p>

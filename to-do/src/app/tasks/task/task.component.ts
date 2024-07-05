@@ -15,19 +15,19 @@ export class TaskComponent {
   // @Output() cancel = new EventEmitter<string>();
 
   onToDo() {
-    console.log('Clicked Todo!');
+    // console.log('Clicked Todo!');
     this.task.status = 'todo';
     this.statusChange.emit(this.task);
   }
 
   onCompleteTask() {
-    console.log('Clicked Cancel !');
+    // console.log('Clicked Cancel !');
     this.task.status = 'completed';
     this.statusChange.emit(this.task);
   }
 
   onCancel() {
-    console.log('Clicked Complete !');
+    // console.log('Clicked Complete !');
     this.task.status = 'canceled';
     this.statusChange.emit(this.task);
   }
