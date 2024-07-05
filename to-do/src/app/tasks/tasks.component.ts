@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { type Task, type NewTaskData } from './task/task.model';
 import { AddTaskComponent } from './add-task/add-task.component';
@@ -11,26 +11,23 @@ import { AddTaskComponent } from './add-task/add-task.component';
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
+
 export class TasksComponent {
-  // @Input() name!: string;
-  tasks = [
+  tasks: Task[] = [
     {
       id: '1',
       name: 'Task1',
-      // todo: false,
-      // completed: true,
+      status: 'todo',
     },
     {
       id: '2',
       name: 'Task2',
-      // todo: true,
-      // completed: false,
+      status: 'completed',
     },
     {
       id: '3',
       name: 'Task3',
-      // todo: false,
-      // completed: true,
+      status: 'canceled',
     },
   ];
 
@@ -49,13 +46,15 @@ export class TasksComponent {
     this.tasks.unshift({
       id: taskData.id,
       name: taskData.name,
-      // todo: false,
-      // completed: false
+      status: taskData.status
     })
     console.log('Task added: ID =', taskData.id, ', Name =', taskData.name);
   }
 
-//   trackById(index: number, task: Task) {
-//     return task.id;
-//   }
+  onStatusChange(updatedTask: Task) {
+    const task = this.tasks.find(t => t.id === updatedTask.id);
+    if (task) {
+      task.status = updatedTask.status;
+    }
+  }
 }

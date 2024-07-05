@@ -5,7 +5,8 @@
     <ul class="tasks" >
       @for (task of tasks; track task.id) {
         <li>
-          <app-task [task]="task" (cancel)="onCancelTask($event)" />
+          <app-task [task]="task" (statusChange)="onStatusChange($event)" />
+          <!-- <app-task [task]="task" (cancel)="onCancelTask($event)" /> -->
         </li>
       }
     </ul>

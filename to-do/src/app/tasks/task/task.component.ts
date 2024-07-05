@@ -11,22 +11,24 @@ import { NgClass } from '@angular/common';
 })
 export class TaskComponent {
   @Input({required: true}) task!: Task;
-  @Output() cancel = new EventEmitter<string>();
-  todo = false;
-  completed = false;
+  @Output() statusChange = new EventEmitter<Task>();
+  // @Output() cancel = new EventEmitter<string>();
 
   onToDo() {
     console.log('Clicked Todo!');
-    this.todo = !this.todo;
+    this.task.status = 'todo';
+    this.statusChange.emit(this.task);
   }
 
   onCompleteTask() {
     console.log('Clicked Cancel !');
-    this.completed = !this.completed;
+    this.task.status = 'completed';
+    this.statusChange.emit(this.task);
   }
 
   onCancel() {
     console.log('Clicked Complete !');
-    this.cancel.emit(this.task.id);
+    this.task.status = 'canceled';
+    this.statusChange.emit(this.task);
   }
 }

@@ -21,7 +21,8 @@ export class AddTaskComponent {
     const newTaskId = uuidv4();
     this.add.emit({
       id: newTaskId,
-      name: this.enteredName.trim()
+      name: this.enteredName.trim(),
+      status: 'todo'
     });
     this.enteredName = '';
     console.log('Adding task: ID =', newTaskId, ', Name =', this.enteredName.trim());

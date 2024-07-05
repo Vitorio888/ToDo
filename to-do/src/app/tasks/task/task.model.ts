@@ -1,13 +1,11 @@
 export interface Task {
   id: string;
   name: string;
-  // todo: boolean;
-  // completed: boolean;
+  status: 'todo' | 'completed' | 'canceled'
 }
 
 export interface NewTaskData {
   id: string;
   name: string;
-  // todo: boolean;
-  // completed: boolean;
+  status: 'todo' | 'completed' | 'canceled'
 }

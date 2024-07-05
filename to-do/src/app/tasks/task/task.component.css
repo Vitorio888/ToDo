@@ -19,6 +19,11 @@
   background-color: rgb(64, 129, 64);
 }
 
+.task.canceled
+{
+  background-color: rgb(215, 35, 12);
+}
+
 .buttons-selector {
   display: flex;
   gap: 1rem;
