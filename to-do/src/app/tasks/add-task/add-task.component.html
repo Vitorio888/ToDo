@@ -2,7 +2,7 @@
   <form (ngSubmit)="onSubmit()">
     <label>
       <span>Add Task</span>
-      <input type="text" id="name" name="name" [(ngModel)]="enteredName">
+      <input type="text" id="id" name="name" [(ngModel)]="enteredName">
     </label>
     <button type="submit" [ngClass]="{'disabled' : isDisabled()}" [disabled]="isDisabled()">Create</button>
   </form>

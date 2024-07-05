@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from './task.model';
+import { type Task } from './task.model';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -27,6 +27,6 @@ export class TaskComponent {
 
   onCancel() {
     console.log('Clicked Complete !');
-    this.cancel.emit(this.task.name);
+    this.cancel.emit(this.task.id);
   }
 }

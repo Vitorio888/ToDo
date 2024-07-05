@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { type NewTaskData } from '../task/task.model';
 import { NgClass } from '@angular/common';
+import { v4 as uuidv4} from 'uuid';
 
 
 
@@ -17,15 +18,17 @@ export class AddTaskComponent {
   enteredName = '';
 
   onSubmit() {
-    console.log('addTask()');
+    const newTaskId = uuidv4();
     this.add.emit({
+      id: newTaskId,
       name: this.enteredName.trim()
     });
     this.enteredName = '';
+    console.log('Adding task: ID =', newTaskId, ', Name =', this.enteredName.trim());
   }
 
   isDisabled() {
-    console.log('isDisabled()');
+    // console.log('isDisabled()');
     return !this.enteredName.trim();
   }
 }
