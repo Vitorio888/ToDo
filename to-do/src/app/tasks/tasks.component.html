@@ -1,14 +1,9 @@
-<div class="wrap">
+<div class="main-block">
   <app-add-task (add)="onAddTask($event)"/>
 
-  <div>
-    <ul class="tasks" >
-      @for (task of tasks; track task.id) {
-        <li>
-          <app-task [task]="task" (statusChange)="onStatusChange($event)" />
-          <!-- <app-task [task]="task" (cancel)="onCancelTask($event)" /> -->
-        </li>
-      }
-    </ul>
-  </div>
+  <mat-list class="task-list">
+    @for (task of tasks; track task.id) {
+      <app-task [task]="task" (statusChange)="onStatusChange($event)" />
+    }
+  </mat-list>
 </div>

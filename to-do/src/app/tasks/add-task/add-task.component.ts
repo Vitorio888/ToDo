@@ -1,15 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { type NewTaskData } from '../task/task.model';
-import { NgClass } from '@angular/common';
 import { v4 as uuidv4} from 'uuid';
-
 
 
 @Component({
   selector: 'app-add-task',
-  standalone: true,
-  imports: [FormsModule, NgClass],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.css'
 })

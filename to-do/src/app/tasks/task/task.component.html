@@ -1,9 +1,10 @@
-<div class="task" [ngClass]="{ 'todo': task.status === 'todo', 'completed' : task.status === 'completed', 'canceled': task.status === 'canceled' }">
-  
-  <p>{{ task.name }}</p>
+<li class="task" [ngClass]="{ 'todo': task.status === 'todo', 'completed' : task.status === 'completed', 'canceled': task.status === 'canceled' }">
+  <span matListItemTitle>{{ task.name }}</span>
   <div class="buttons-selector">
-    <button type="button" (click)="onToDo()">ToDo</button>
-    <button type="button"  (click)="onCompleteTask()">Completed</button>
-    <button type="button" (click)="onCancel()">Canceled</button>
+    <button color="primary" mat-raised-button (click)="onToDo()">ToDo</button>
+    <button color="accent" mat-raised-button (click)="onCompleteTask()">Completed</button>
+    <button color="warn" mat-raised-button (click)="onCancel()">Canceled</button>
   </div>
-</div>
+  
+</li>
+<mat-divider></mat-divider>

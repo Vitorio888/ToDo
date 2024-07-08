@@ -1,11 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { type Task } from './task.model';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-task',
-  standalone: true,
-  imports: [NgClass],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
