@@ -4,13 +4,19 @@
   max-width: 50rem;
   display: grid;
   grid-auto-flow: row;
-  gap: 2rem;
+  /* justify-content: flex-end; */
+  padding-left: 1rem;
+  /* gap: 2rem; */
+}
+
+.user-tasks {
+  margin-top: 0;
 }
   
   
 @media (min-width: 768px) {
   .main-block {
-    grid-template-columns: 1fr 3fr;
+    /* grid-template-columns: 1fr 3fr; */
   }
 }
 

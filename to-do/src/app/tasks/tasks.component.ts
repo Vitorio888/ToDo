@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { type Task, type NewTaskData } from './task/task.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { type Task, type NewTaskData } from './task/task.model';
 })
 
 export class TasksComponent {
+  @Input() name?: string;
+
   tasks: Task[] = [
     {
       id: '1',

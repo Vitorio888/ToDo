@@ -1,5 +1,6 @@
 <div class="main-block">
-  <!-- <app-add-task (add)="onAddTask()"/> -->
+  <h2 class="user-tasks">{{ name }}'s Tasks</h2>
+  
   <app-add-task (add)="onAddTask($event)"/>
 
   <mat-list class="task-list">
