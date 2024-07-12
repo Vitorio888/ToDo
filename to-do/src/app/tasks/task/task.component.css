@@ -6,6 +6,11 @@
   padding: 1rem;
   gap: 1rem;
   overflow: hidden;
+  color: #fff;
+}
+
+.task span {
+  color: #fff;
 }
 
 /* .task.todo

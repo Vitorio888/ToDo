@@ -4,6 +4,7 @@ main {
   margin: 2.5rem auto;
   display: grid;
   grid-auto-flow: row;
+  gap: 1rem;
 }
 
 .left

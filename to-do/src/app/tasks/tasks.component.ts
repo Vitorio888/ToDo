@@ -8,40 +8,43 @@ import { type Task, type NewTaskData } from './task/task.model';
 })
 
 export class TasksComponent {
-  @Input() name?: string;
+  @Input({required: true}) userId!: string;
+  @Input({required: true}) name!: string;
 
   tasks: Task[] = [
     {
       id: '1',
+      userId: 'u1',
       name: 'Task1',
       status: 'todo',
     },
     {
       id: '2',
+      userId: 'u2',
       name: 'Task2',
       status: 'completed',
     },
     {
       id: '3',
+      userId: 'u3',
       name: 'Task3',
       status: 'canceled',
     },
   ];
 
+  get selectedUserTasks() {
+    return this.tasks.filter((task) => task.userId === this.userId);
+  }
+
   ngOnInit() {
     console.log('Initial task list:', this.tasks);
   }
 
-  // onCancelTask(id: string)
-  // {
-  //   this.tasks = this.tasks.filter((task) => task.id !== id);
-  //   console.log('Task canceled:', id);
-  // }
-
-  onAddTask(taskData: NewTaskData)
+  onAddTask(taskData: NewTaskData, userId: string)
   {
     this.tasks.unshift({
       id: taskData.id,
+      userId: userId,
       name: taskData.name,
       status: taskData.status
     })
