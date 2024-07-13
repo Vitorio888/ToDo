@@ -1,10 +1,14 @@
 <div class="main-block">
-  <!-- <app-add-task (add)="onAddTask()"/> -->
-  <app-add-task (add)="onAddTask($event)"/>
+  <h2 class="user-tasks">{{ name }}'s Tasks</h2>
+  
+  <app-add-task [userId]="userId" />
 
   <mat-list class="task-list">
-    @for (task of tasks; track task.id) {
-      <app-task [task]="task" (statusChange)="onStatusChange($event)" />
+    <!-- displaying a list of tasks for the selected user -->
+    @for (task of selectedUserTasks; track task.id) {
+      <li>
+        <app-task [task]="task" />
+      </li>
     }
   </mat-list>
 </div>

@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { type NewTaskData } from '../task/task.model';
-import { v4 as uuidv4} from 'uuid';
+import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TasksService } from '../tasks.service';
 
 
 @Component({
@@ -17,27 +16,26 @@ export class AddTaskComponent {
       }
   ),
   });
-  @Output() add = new EventEmitter<NewTaskData>();
+
+  @Input({required: true}) userId!: string;
+
+  private tasksService = inject(TasksService);
 
   onSubmit() {
-    console.log(this.form);
-    const newTaskId = uuidv4();
+    // console.log(this.form);
     const enteredName = this.form.value.enteredName;
     const nameWithoutQuotes = JSON.stringify(enteredName);
-    const status = 'todo'
-    this.add.emit({
-      id: newTaskId,
-      name: JSON.parse(nameWithoutQuotes).trim(),
-      status: status
-    });
-    this.form.value.enteredName = '';
-    console.log(enteredName);
-    
-    // console.log('Adding task: ID =', newTaskId, ', Name =', this.enteredName.trim() , ', Status =', status);
+    this.tasksService.addTask(
+      {
+        name: JSON.parse(nameWithoutQuotes).trim(),
+      },
+      this.userId
+    );
+    this.form.reset();
+    // console.log(enteredName);
   }
 
   isDisabled() {
-    // console.log('isDisabled()');
     // return !this.enteredName.trim();
     return !this.form.value.enteredName?.trim();
   }
