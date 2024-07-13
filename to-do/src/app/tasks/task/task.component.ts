@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { type Task } from './task.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-task',
@@ -8,24 +9,26 @@ import { type Task } from './task.model';
 })
 export class TaskComponent {
   @Input({required: true}) task!: Task;
-  @Output() statusChange = new EventEmitter<Task>();
-  // @Output() cancel = new EventEmitter<string>();
 
-  onToDo() {
-    // console.log('Clicked Todo!');
+  private tasksService = inject(TasksService);
+
+
+  onToDoTask() {
     this.task.status = 'todo';
-    this.statusChange.emit(this.task);
+    this.tasksService.changeStatus(this.task);
   }
 
   onCompleteTask() {
-    // console.log('Clicked Cancel !');
     this.task.status = 'completed';
-    this.statusChange.emit(this.task);
+    this.tasksService.changeStatus(this.task);
   }
 
-  onCancel() {
-    // console.log('Clicked Complete !');
+  onCancelTask() {
     this.task.status = 'canceled';
-    this.statusChange.emit(this.task);
+    this.tasksService.changeStatus(this.task);
+  }
+
+  onDeleteTask() {
+    this.tasksService.removeTask(this.task.id);
   }
 }

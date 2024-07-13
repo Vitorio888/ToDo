@@ -1,8 +1,16 @@
-<div class="task" [ngClass]="{ 'todo': task.status === 'todo', 'completed' : task.status === 'completed', 'canceled': task.status === 'canceled' }">
-  <span matListItemTitle>{{ task.name }}</span>
-  <div class="buttons-selector">
-    <button color="primary" mat-raised-button (click)="onToDo()">ToDo</button>
-    <button color="accent" mat-raised-button (click)="onCompleteTask()">Completed</button>
-    <button color="warn" mat-raised-button (click)="onCancel()">Canceled</button>
+<app-card>
+  <div class="task" [ngClass]="{ 'todo': task.status === 'todo', 'completed' : task.status === 'completed', 'canceled': task.status === 'canceled' }">
+    <span matListItemTitle>{{ task.name }}</span>
+    <div class="task-bottom">
+      <div class="buttons-selector">
+        <button color="primary" mat-raised-button (click)="onToDoTask()">ToDo</button>
+        <button color="accent" mat-raised-button (click)="onCompleteTask()">Completed</button>
+        <button color="warn" mat-raised-button (click)="onCancelTask()">Canceled</button>
+      </div>
+      <button color="warn" mat-raised-button (click)="onDeleteTask()">
+        <mat-icon>remove_circle_outline</mat-icon>
+        Delete
+      </button>
+    </div>
   </div>
-</div>
+</app-card>

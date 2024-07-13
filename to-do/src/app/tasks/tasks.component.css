@@ -31,10 +31,11 @@
   flex-direction: column;
   margin-top: 1rem;
   padding: 0;
-  /* border-radius: 8px;
+  gap: 0.5rem;
+  border-radius: 8px;
   max-height: 60vh;
   overflow: auto;
-  background-color: #3a2c54; */
+  background-color: #3a2c54;
 }
 
 .task-list li

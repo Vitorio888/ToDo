@@ -3,7 +3,6 @@
     <mat-form-field>
       <mat-label>Add Task</mat-label>
       <input matInput type="text" placeholder="Task" id="id" name="name" [formControl]="form.controls.enteredName">
-      <!-- <input matInput type="text" placeholder="Task" id="id" name="name" [(ngModel)]="enteredName"> -->
     </mat-form-field>
     <!-- <button mat-fab extended type="submit">Create</button> -->
     <button mat-fab extended type="submit" [ngClass]="{'disabled' : isDisabled()}" [disabled]="isDisabled()">Create</button>
