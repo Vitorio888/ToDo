@@ -6,7 +6,5 @@ export interface Task {
 }
 
 export interface NewTaskData {
-  // id: string;
   name: string;
-  // status: 'todo' | 'completed' | 'canceled'
 }

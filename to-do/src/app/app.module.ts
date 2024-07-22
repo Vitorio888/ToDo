@@ -12,6 +12,11 @@ import { UsersComponent } from "./user/user.component";
 import { TasksComponent } from "./tasks/tasks.component";
 import { AddTaskComponent } from "./tasks/add-task/add-task.component";
 import { TaskComponent } from "./tasks/task/task.component";
+
+import { MultitasksComponent } from "./multitasks/multitasks.component";
+import { MultitaskComponent } from "./multitasks/multitask/multitask.component";
+import { NewTaskComponent } from "./new-task/new-task.component";
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
@@ -24,7 +29,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     UsersComponent,
     TasksComponent,
     AddTaskComponent,
-    TaskComponent
+    TaskComponent,
+    MultitasksComponent,
+    MultitaskComponent,
+    NewTaskComponent,
   ],
   imports: [
     BrowserModule,

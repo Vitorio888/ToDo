@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TasksService } from '../tasks.service';
 
 
@@ -10,16 +10,25 @@ import { TasksService } from '../tasks.service';
 })
 export class AddTaskComponent {
   form = new FormGroup({
-    enteredName: new FormControl('',
-      {
+    enteredName: new FormControl('', {
         validators: [Validators.required]
-      }
-  ),
+      }),
+      // users: new FormArray<FormGroup>([]),
+      // assignedUsers: new FormControl<string[] | null>(null, {
+      //   validators: [Validators.required],
+      // }),
   });
 
   @Input({required: true}) userId!: string;
 
   private tasksService = inject(TasksService);
+
+  // public onAddUser() {
+  //   const userForm = new FormGroup({
+  //     name: new FormControl<string | null>(null),
+  //   });
+  //   this.form.controls.users.push(userForm);
+  // }
 
   onSubmit() {
     // console.log(this.form);

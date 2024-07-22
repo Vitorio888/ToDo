@@ -1,0 +1,40 @@
+.task
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #bf9ee5;
+  color: #fff;
+}
+
+.task span {
+  color: #fff;
+}
+
+/* .task.todo
+{
+  background-color: rgb(20, 130, 173);
+} */
+
+.task.completed
+{
+  background-color: #408140;
+}
+
+.task.canceled
+{
+  background-color: #ba1a1a;
+}
+
+.buttons-selector {
+  display: flex;
+  gap: 1rem;
+}
+
+.task-bottom
+{
+  display: flex;
+  justify-content: space-between;
+}
