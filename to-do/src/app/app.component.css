@@ -1,11 +1,20 @@
 main {
   width: 90%;
   max-width: 50rem;
+  gap: 2.5rem;
   margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-wrap, .multitasks {
+  width: 100%;
   display: grid;
   grid-auto-flow: row;
   gap: 1rem;
 }
+
 
 .left
 {
@@ -32,8 +41,12 @@ main {
 
 @media (min-width: 768px) {
   main {
-    grid-template-columns: 1fr 3fr;
     margin: 4rem auto;
+  }
+
+  .main-wrap, .multitasks
+  {
+    grid-template-columns: 1fr 3fr;
   }
 
   .users {
