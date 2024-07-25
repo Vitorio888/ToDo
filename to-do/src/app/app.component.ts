@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DUMMY_USERS } from './dummy-users';
-// import { DATA_MULTI_TASK } from './data-multi-tasks';
+import { DATA_MULTI_TASK } from './data-multi-tasks';
 // import { RouterOutlet } from '@angular/router';
 
 class AppModule {}
@@ -25,8 +25,5 @@ export class AppComponent {
   onSelectUser(id: string) {
     this.selecetedUserId = id;
   }
-
-  // multiTasks = DATA_MULTI_TASK;
-  
 }
 

@@ -7,36 +7,30 @@ import { MultiTasksService } from '../multitasks/multitasks.service';
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })
-export class NewTaskComponent implements OnInit {
 
-  form!: FormGroup;
+export class NewTaskComponent {
 
-  constructor(private fb: FormBuilder, private tasksService: MultiTasksService) {}
+  private multiTasksService = inject(MultiTasksService);
 
-  // @Input({required: true}) userId!: string;
+  form = new FormGroup({
+    taskName: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    users: new FormArray<FormGroup>([]),
+  });
 
-  ngOnInit() {
-    this.form = this.fb.group({
-      taskName: '',
-      users: this.fb.array([])
-    });
-  }
-
+    // Helper method to get the 'items' FormArray
   get users() {
     return this.form.get('users') as FormArray;
   }
 
-  // addUser() {
-  //   const userGroup = this.fb.group({
-  //     userName: ['', Validators.required]
-  //   });
-  //   this.users.push(userGroup);
-  // }
-
-  addUser() {
-    this.users.push(this.fb.group({
-      userName: ''
-    }));
+  onAddUser() {
+    const userForm = new FormGroup({
+      userName: new FormControl<string | null>(null, {
+        validators: [Validators.required],
+      }),
+    });
+    this.form.controls.users.push(userForm);
   }
 
   onSubmit() {
@@ -45,49 +39,105 @@ export class NewTaskComponent implements OnInit {
       console.log(this.form.value);
 
       const taskName = this.form.value.taskName;
-      const userArray = this.form.value.users[0];
+      const userArray = this.form.value.users;
 
       const taskNameWithoutQuotes = JSON.stringify(taskName);
-      let userNameWithoutQuotes = JSON.stringify(userArray);
+      const userNameWithoutQuotes = JSON.stringify(userArray);
 
-      this.tasksService.addMultiTask(
+      this.multiTasksService.addMultiTask(
         {
-          // userName: JSON.parse(userNameWithoutQuotes).trim(),
-          userName: userNameWithoutQuotes,
-          taskName: JSON.parse(taskNameWithoutQuotes).trim(),
+          taskName: JSON.parse(taskNameWithoutQuotes),
+          userName: userNameWithoutQuotes
         },
       );
 
     }
   }
-
-  // onSubmit() {
-  //   const enteredName = this.form.value.enteredName;
-  //   const nameWithoutQuotes = JSON.stringify(enteredName);
-  //   this.tasksService.addTask(
-  //     {
-  //       name: JSON.parse(nameWithoutQuotes).trim(),
-  //     },
-  //     this.userId
-  //   );
-  // }
-
-  // form = new FormGroup({
-  //   enteredName: new FormControl('', {
-  //       validators: [Validators.required]
-  //     }),
-  //     users: new FormArray<FormGroup>([]),
-  // });
-
-
-  // private tasksService = inject(TasksService);
-
-
-  // public onAddUser() {
-  //   const userForm = new FormGroup({
-  //     name: new FormControl<string | null>(null),
-  //   });
-  //   this.form.controls.users.push(userForm);
-  // }
-
 }
+
+
+
+//////////////////////////////////////////////////////////////
+// export class NewTaskComponent implements OnInit {
+
+//   form!: FormGroup;
+
+//   constructor(private fb: FormBuilder, private tasksService: MultiTasksService) {}
+
+//   ngOnInit(): void {
+//     this.form = this.fb.group({
+//       taskName: new FormControl('', {
+//         validators: [Validators.required]
+//       }),
+//       users: new FormArray<FormGroup>([], {
+//         validators: [Validators.required]
+//       }),
+//       // users: this.fb.array([]) // Initialize an empty FormArray
+//     });
+//   }
+
+//   // Helper method to get the 'items' FormArray
+//   get users() {
+//     return this.form.get('users') as FormArray;
+//   }
+
+//   // ngOnInit(): void {
+//   //   this.myForm = this.fb.group({
+//   //     items: this.fb.array([
+//   //       this.fb.group({
+//   //         name: ['', Validators.required],
+//   //         quantity: [1, [Validators.required, Validators.min(1)]],
+//   //         subItems: this.fb.array([]) 
+//   //       })
+//   //     ])
+//   //   });
+//   // }
+
+//   // Other form-related methods will go here
+
+//   // addUser() {
+//   //   const userGroup = this.fb.group({
+//   //     userName: ['', Validators.required]
+//   //   });
+//   //   this.users.push(userGroup);
+//   // }
+
+//   onAddUser() {
+//     const user = this.fb.group({
+//       // Define your form controls here
+//       userName: ['', Validators.required],
+//       // Add more form controls as needed
+//     });
+
+//     // Add the new form group to the FormArray
+//     this.users.push(user);
+
+//     // 
+//     // this.users.push(this.fb.group({
+//     //   userName: ''
+//     // }));
+//   }
+
+
+//   onSubmit() {
+//     if (this.form.valid) {
+//       // Обработка отправки формы
+//       console.log(this.form.value);
+
+//       const taskName = this.form.value.taskName;
+//       const userArray = this.form.value.users;
+
+//       const taskNameWithoutQuotes = JSON.stringify(taskName);
+//       let userNameWithoutQuotes = JSON.stringify(userArray);
+
+//       this.tasksService.addMultiTask(
+//         {
+//           userName: userNameWithoutQuotes,
+//           taskName: JSON.parse(taskNameWithoutQuotes).trim(),
+//         },
+//       );
+
+//     }
+//   }
+// }
+

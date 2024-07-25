@@ -28,6 +28,7 @@ export class MultitaskComponent {
   }
 
   onDeleteTask() {
+    // console.log('Clicked Delete');
     this.multiTasksService.removeMultiTask(this.multiTask.id);
   }
 }

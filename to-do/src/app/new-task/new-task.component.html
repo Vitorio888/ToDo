@@ -3,21 +3,18 @@
     <mat-form-field>
       <mat-label>Add Task</mat-label>
       <input matInput type="text" placeholder="Task" formControlName="taskName">
-      <!-- <input matInput type="text" placeholder="Task" id="id" name="name" [formControl]="form.controls.enteredName"> -->
     </mat-form-field>
 
-    <div formArrayName="users">
-      <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
-        <!-- @for (user of users.controls; track i) { -->
-        <mat-form-field >
-          <mat-label>User Name</mat-label>
-          <input matInput type="text" placeholder="User Name" formControlName="userName">
-        </mat-form-field>
-      <!-- } -->
-      </div>
-      <button mat-button type="button" (click)="addUser()">+</button>
-    </div>
 
+    <div formArrayName="users">
+     <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
+        <mat-form-field>
+          <mat-label>User {{ i + 1 }}:</mat-label>
+          <input matInput placeholder="User Name" formControlName="userName">
+        </mat-form-field>
+      </div>
+      <button style="margin: 20px 0px;" mat-button type="button" (click)="onAddUser()">+ Add User</button>
+    </div>
     <button mat-fab extended type="submit">Create</button>
 
     <!-- <button mat-fab extended type="submit" [ngClass]="{'disabled' : isDisabled()}" [disabled]="isDisabled()">Create</button> -->

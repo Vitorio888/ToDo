@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { MultiTasksService } from './multitasks.service';
 import { MultiTask } from './multitask/multitask.model';
 import { DATA_MULTI_TASK } from '../data-multi-tasks';
@@ -8,20 +8,27 @@ import { DATA_MULTI_TASK } from '../data-multi-tasks';
   templateUrl: './multitasks.component.html',
   styleUrl: './multitasks.component.css'
 })
-export class MultitasksComponent implements OnInit {
+export class MultitasksComponent implements OnInit  {
+  
+  private multiTasksService = inject(MultiTasksService);
 
   multiTasks: MultiTask[] = [];
-
-  constructor(private multiTasksService: MultiTasksService) {}
 
   ngOnInit(): void {
     this.getMultiTasks();
   }
 
-  getMultiTasks(): void {
+  getMultiTasks() {
     this.multiTasksService.getMultiTasks().subscribe((multiTasks) => {
       this.multiTasks = multiTasks;
     });
   }
+
+  // @Input({required: true}) taskId!: string;
+  // constructor(private multiTasksService: MultiTasksService) {}
+
+  // get loadedTask() {
+  //   return this.multiTasksService.getMultiTasks(this.taskId);
+  // }
   
 }
