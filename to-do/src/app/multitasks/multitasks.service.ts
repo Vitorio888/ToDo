@@ -7,24 +7,24 @@ import { Observable, of } from "rxjs";
 export class MultiTasksService {
 
   private multiTasks: MultiTask[] = [
-    {
-      id: '1',
-      userName: 'Gio',
-      taskName: 'Task1',
-      status: 'todo',
-    },
-    {
-      id: '2',
-      userName: 'Misha',
-      taskName: 'Task2',
-      status: 'todo',
-    },
-    {
-      id: '3',
-      userName: 'Mariam',
-      taskName: 'Task3',
-      status: 'todo',
-    },
+    // {
+    //   id: '1',
+    //   userName: 'Gio',
+    //   taskName: 'Task1',
+    //   status: 'todo',
+    // },
+    // {
+    //   id: '2',
+    //   userName: 'Misha',
+    //   taskName: 'Task2',
+    //   status: 'todo',
+    // },
+    // {
+    //   id: '3',
+    //   userName: 'Mariam',
+    //   taskName: 'Task3',
+    //   status: 'todo',
+    // },
   ];
 
   constructor() {
@@ -43,8 +43,8 @@ export class MultiTasksService {
     return of(this.multiTasks);
   }
 
-  // getMultiTasks(id: string) {
-  //   return this.multiTasks.filter((multiTask) => multiTask.id === id);
+  // getMultiTasks(taskId: string) {
+  //   return this.multiTasks.filter((multiTask) => multiTask.id === taskId);
   // }
 
   addMultiTask(taskData: NewMultiTaskData) {
@@ -74,4 +74,5 @@ export class MultiTasksService {
     this.multiTasks = this.multiTasks.filter((multiTask) => multiTask.id !== id);
     this.saveMultiTasks();
   }
+
 }
