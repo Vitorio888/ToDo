@@ -10,7 +10,7 @@
      <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
         <mat-form-field>
           <mat-label>User {{ i + 1 }}:</mat-label>
-          <input matInput placeholder="User Name" formControlName="userName">
+          <input matInput placeholder="User Name" id="id" formControlName="userName">
         </mat-form-field>
       </div>
       <button style="margin: 20px 0px;" mat-button type="button" (click)="onAddUser()">+ Add User</button>
