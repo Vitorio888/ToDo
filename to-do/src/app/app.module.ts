@@ -15,7 +15,7 @@ import { TaskComponent } from "./tasks/task/task.component";
 
 import { MultitasksComponent } from "./multitasks/multitasks.component";
 import { MultitaskComponent } from "./multitasks/multitask/multitask.component";
-import { NewTaskComponent } from "./new-task/new-task.component";
+import { ReactiveNewTaskComponent } from "./reactive-new-task/reactive-new-task.component";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -32,7 +32,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     TaskComponent,
     MultitasksComponent,
     MultitaskComponent,
-    NewTaskComponent,
+    ReactiveNewTaskComponent
   ],
   imports: [
     BrowserModule,
