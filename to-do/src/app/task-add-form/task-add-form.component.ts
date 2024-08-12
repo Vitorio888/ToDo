@@ -13,8 +13,6 @@ class TaskUserFormTypedToken {
 
 @Component({
   selector: 'app-task-add-form',
-  standalone: true,
-  imports: [],
   templateUrl: './task-add-form.component.html',
   styleUrl: './task-add-form.component.css',
 })
@@ -24,6 +22,9 @@ export class TaskAddFormComponent {
     users: new FormArray<FormGroup<TaskUserFormTypedToken>>([]),
   });
   constructor(private taskDataService: TaskDataService) {}
+  get users() {
+    return this.formGroup.controls.users;
+  }
   public onAddUser() {
     this.formGroup.controls.users.push(
       new FormGroup(new TaskUserFormTypedToken())
@@ -37,5 +38,6 @@ export class TaskAddFormComponent {
     } else {
       console.log('Form is invalid');
     }
+    console.log(this.formGroup.value);
   }
 }

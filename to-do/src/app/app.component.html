@@ -1,28 +1,6 @@
-<app-header />
-
 <main>
-  <div class="main-wrap">
-    <ul class="users">
-      @for (user of users; track user.id) {
-        <li>
-          <app-users [user]="user" [selected]="user.id === selecetedUserId" (select)="onSelectUser($event)" />
-        </li>
-      }
-    </ul>
-    
-    @if (selectedUser) {
-      <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
-    } @else {
-      <p class="fallback">Select a user to see their tasks!</p>
-    }
-  </div>
-  
-
   <div class="multitasks">
-    <app-reactive-new-task  />
-    
-    <app-multitasks />
+    <app-task-add-form />
+    <app-tasks-view />
   </div>
-  
-  
 </main>

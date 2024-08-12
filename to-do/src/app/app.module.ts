@@ -6,16 +6,10 @@ import { MaterialModule } from "./material/material.module";
 
 
 import { AppComponent } from "./app.component";
-import { HeaderComponent } from "./header/header.component";
 import { CardComponent } from "./shared/card/card.component";
-import { UsersComponent } from "./user/user.component";
-import { TasksComponent } from "./tasks/tasks.component";
-import { AddTaskComponent } from "./tasks/add-task/add-task.component";
-import { TaskComponent } from "./tasks/task/task.component";
 
-import { MultitasksComponent } from "./multitasks/multitasks.component";
-import { MultitaskComponent } from "./multitasks/multitask/multitask.component";
-import { ReactiveNewTaskComponent } from "./reactive-new-task/reactive-new-task.component";
+import { TaskAddFormComponent } from "./task-add-form/task-add-form.component";
+import { TasksViewComponent } from "./tasks-view/tasks-view.component";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -24,15 +18,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 @NgModule ({
   declarations: [
     AppComponent,
-    HeaderComponent,
     CardComponent,
-    UsersComponent,
-    TasksComponent,
-    AddTaskComponent,
-    TaskComponent,
-    MultitasksComponent,
-    MultitaskComponent,
-    ReactiveNewTaskComponent
+    TaskAddFormComponent,
+    TasksViewComponent
   ],
   imports: [
     BrowserModule,

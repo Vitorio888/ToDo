@@ -1,1 +1,29 @@
-<p>tasks-view works!</p>
+<div class="main-block">
+  <h2 class="user-tasks">Tasks</h2>
+
+  <mat-list class="task-list">
+    @for (task of tasks; track $index) {
+      <li>
+        <app-card>
+          <div class="task">
+            <h3>{{ task.description }}</h3>
+            <mat-list>
+              @for (user of task.users; track $index) {
+                <li>
+                  <div class="task__data">
+                    <span>User Name:</span>
+                    <p>{{ user.name }}</p>
+                  </div>
+                  <div class="task__data">
+                    <span>User Email:</span>
+                    <p>{{ user.email }}</p>
+                  </div>
+                </li>
+              }
+            </mat-list>
+          </div>
+        </app-card>
+      </li>
+    }
+  </mat-list>
+</div>

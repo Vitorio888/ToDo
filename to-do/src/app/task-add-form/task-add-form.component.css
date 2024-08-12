@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__title {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}

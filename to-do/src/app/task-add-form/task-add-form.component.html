@@ -1,1 +1,27 @@
-<p>task-add-form works!</p>
+<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div class="form__block">
+    <span class="form__title">Task</span>
+    <mat-form-field appearance="outline">
+      <mat-label>Add Task</mat-label>
+      <input matInput type="text" placeholder="Task" formControlName="description">
+    </mat-form-field>
+  </div>
+
+  <div formArrayName="users">
+    <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
+      <div class="form__block">
+        <span class="form__title">User {{ i + 1 }}:</span>
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="User Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>User Email:</mat-label>
+          <input matInput placeholder="User Email" formControlName="email">
+        </mat-form-field>
+      </div>
+     </div>
+     <button style="margin: 20px 0px;" mat-button type="button" (click)="onAddUser()">+ Add User</button>
+   </div>
+   <button mat-fab extended type="submit">Create</button>
+</form>
