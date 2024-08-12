@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskDataService } from '../task-data.service';
+import { ITask } from '../types';
 
 class TaskUserFormTypedToken {
   name = new FormControl<string | null>(null, Validators.required);

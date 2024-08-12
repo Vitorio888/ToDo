@@ -1,8 +1,8 @@
-interface IUser {
+export interface IUser {
   name: string;
   email: string;
 }
-interface ITask {
+export interface ITask {
   description: string;
   users: IUser[];
 }
