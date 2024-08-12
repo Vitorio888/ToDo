@@ -1,15 +1,19 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MultiTasksService } from '../multitasks/multitasks.service';
 
 @Component({
   selector: 'app-reactive-new-task',
   templateUrl: './reactive-new-task.component.html',
-  styleUrl: './reactive-new-task.component.css'
+  styleUrl: './reactive-new-task.component.css',
 })
-
 export class ReactiveNewTaskComponent {
-
   // contact our service
   private multiTasksService = inject(MultiTasksService);
 
@@ -25,7 +29,7 @@ export class ReactiveNewTaskComponent {
 
   // Helper method to get the 'items' (users) FormArray
   get users() {
-    return this.form.get('users') as FormArray;
+    return this.form.controls.users;
   }
 
   // Method for new item in our array. When we click button 'Add User'.
@@ -43,7 +47,7 @@ export class ReactiveNewTaskComponent {
     if (this.form.valid) {
       console.log(this.form.value);
       // console.log(this.form);
-      
+
       const taskName = this.form.value.taskName;
       const userArray = this.form.value.users;
 
@@ -51,14 +55,11 @@ export class ReactiveNewTaskComponent {
       const userNameWithoutQuotes = JSON.stringify(userArray);
 
       // contact our service
-      this.multiTasksService.addMultiTask(
-        {
-          taskName: JSON.parse(taskNameWithoutQuotes),
-          userName: userNameWithoutQuotes
-        },
-      );
+      this.multiTasksService.addMultiTask({
+        taskName: JSON.parse(taskNameWithoutQuotes),
+        userName: userNameWithoutQuotes,
+      });
       this.form.reset();
     }
   }
 }
-
